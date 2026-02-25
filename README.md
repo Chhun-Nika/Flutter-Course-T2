@@ -1,4 +1,4 @@
-# lab_exercise
+# activity
 
 A new Flutter project.
 
