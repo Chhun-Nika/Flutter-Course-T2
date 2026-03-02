@@ -7,7 +7,9 @@ class AppSettingsState extends ChangeNotifier {
   final AppSettingRepository _appSettingRepository;
   AppSettings? _appSettings;
 
-  AppSettingsState(this._appSettingRepository);
+  AppSettingsState(this._appSettingRepository) {
+    init();
+  }
 
   Future<void> init() async {
     // Might be used to load data from repository

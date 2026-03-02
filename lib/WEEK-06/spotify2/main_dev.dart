@@ -1,5 +1,4 @@
-import 'package:activity/WEEK-05/challenge3/main.dart';
-import 'package:activity/WEEK-06/spotify2/data/repositories/setting/app_setting_repository.dart';
+import 'package:activity/WEEK-05/challenge3/main.dart'; // import 'package:activity/WEEK-06/spotify2/data/repositories/setting/app_setting_repository.dart';
 import 'package:activity/WEEK-06/spotify2/data/repositories/setting/app_setting_repository_mock.dart';
 import 'package:provider/provider.dart';
 import 'package:nested/nested.dart';
@@ -21,11 +20,7 @@ List<SingleChildWidget> get devProviders {
 
     // 3 - Inject the  app setting state
     ChangeNotifierProvider<AppSettingsState>(
-      create: (_) {
-        final state = AppSettingsState(AppSettingRepositoryMock());
-        state.init();
-        return state;
-      },
+      create: (_) => AppSettingsState(AppSettingRepositoryMock()),
     ),
   ];
 }
