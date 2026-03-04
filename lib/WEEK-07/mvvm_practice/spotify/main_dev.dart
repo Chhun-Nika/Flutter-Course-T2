@@ -1,3 +1,5 @@
+import 'package:activity/WEEK-07/mvvm_practice/spotify/data/repositories/history/user_history_repository.dart';
+import 'package:activity/WEEK-07/mvvm_practice/spotify/data/repositories/history/user_history_repository_mock.dart';
 import 'package:provider/provider.dart';
 import 'package:nested/nested.dart';
  
@@ -15,6 +17,7 @@ List<SingleChildWidget> get devProviders {
   return [
     // 1 - Inject the song repository
     Provider<SongRepository>(create: (_) => SongRepositoryMock()),
+    Provider<UserHistoryRepository>(create: (_) => UserHistoryRepositoryMock()),
 
     // 2 - Inject the player state
     ChangeNotifierProvider<PlayerState>(create: (_) => PlayerState()),
