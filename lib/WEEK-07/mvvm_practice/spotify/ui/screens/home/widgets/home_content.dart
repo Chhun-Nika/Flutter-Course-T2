@@ -14,6 +14,7 @@ class HomeContent extends StatelessWidget {
       children: [
         SizedBox(height: 16),
         Text("Home", style: AppTextStyles.heading),
+        Text("Your recent songs"),
 
         SizedBox(height: 50),
 
