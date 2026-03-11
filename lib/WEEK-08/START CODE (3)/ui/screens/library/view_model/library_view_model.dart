@@ -1,3 +1,4 @@
+import 'package:activity/WEEK-08/START%20CODE%20(3)/utils/async_value_state.dart';
 import 'package:flutter/material.dart';
 import '../../../../data/repositories/songs/song_repository.dart';
 import '../../../states/player_state.dart';
@@ -7,6 +8,7 @@ class LibraryViewModel extends ChangeNotifier {
   final SongRepository songRepository;
   final PlayerState playerState;
   List<Song>? _songs;
+  AsyncValue<List<Song>> songsValue = AsyncValue.loading();
 
   LibraryViewModel({required this.songRepository, required this.playerState}) {
     playerState.addListener(notifyListeners);
@@ -24,11 +26,18 @@ class LibraryViewModel extends ChangeNotifier {
   }
 
   void _init() async {
-    // 1 - Fetch songs
-    _songs = await songRepository.fetchSongs();
-
-    // 2 - notify listeners
+    // 1 - loading state
+    songsValue = AsyncValue.loading();
     notifyListeners();
+
+    try {
+      _songs = await songRepository.fetchSongs();
+      songsValue = AsyncValue.success(_songs);
+      notifyListeners();
+    } catch (e) {
+      songsValue = AsyncValue.error(e);
+      notifyListeners();
+    }
   }
 
   bool isSongPlaying(Song song) => playerState.currentSong == song;

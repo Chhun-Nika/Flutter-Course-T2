@@ -39,13 +39,16 @@ class SongRepositoryMock implements SongRepository {
 
   @override
   Future<List<Song>> fetchSongs() async {
-    return _songs;
+    // return _songs;
+    return Future.delayed(Duration(seconds: 4), () {
+      return _songs;
+    });
   }
 
   @override
   Future<Song?> fetchSongById(String id) async {
     // - Simulate a delay of 3 seconds.
-    return Future.delayed(Duration(seconds: 3), (){
+    return Future.delayed(Duration(seconds: 3), () {
       // - After the delay : Find the song of given id in the list of songs and return it
       Song? song;
       for (var s in _songs) {
@@ -61,7 +64,5 @@ class SongRepositoryMock implements SongRepository {
 
       return song; // TO CHANGE !
     });
-
-    
   }
 }
