@@ -1,0 +1,76 @@
+{
+    "vegetables": {
+        "leafy": {
+            "veg_001": {
+                "name": "Spinach",
+                "color": "Green",
+                "price_per_kg": 2.5,
+                "stock": 100,
+                "supplier": {
+                    "name": "Green Farm",
+                    "phone": "+85511111111",
+                    "address": "Phnom Penh"
+                }
+            },
+            "veg_002": {
+                "name": "Lettuce",
+                "color": "Light Green",
+                "price_per_kg": 1.8,
+                "stock": 80,
+                "supplier": {
+                    "name": "Fresh Veggie Co",
+                    "phone": "+85522222222",
+                    "address": "Siem Reap"
+                }
+            }
+        },
+        "root": {
+            "veg_003": {
+                "name": "Carrot",
+                "color": "Orange",
+                "price_per_kg": 1.2,
+                "stock": 150,
+                "supplier": {
+                    "name": "Organic Roots",
+                    "phone": "+85533333333",
+                    "address": "Battambang"
+                }
+            },
+            "veg_004": {
+                "name": "Potato",
+                "color": "Brown",
+                "price_per_kg": 0.9,
+                "stock": 200,
+                "supplier": {
+                    "name": "Farm Supply Ltd",
+                    "phone": "+85544444444",
+                    "address": "Kampot"
+                }
+            }
+        },
+        "fruit_vegetables": {
+            "veg_005": {
+                "name": "Tomato",
+                "color": "Red",
+                "price_per_kg": 1.5,
+                "stock": 120,
+                "supplier": {
+                    "name": "Sunshine Farm",
+                    "phone": "+85555555555",
+                    "address": "Takeo"
+                }
+            },
+            "veg_006": {
+                "name": "Cucumber",
+                "color": "Green",
+                "price_per_kg": 1.0,
+                "stock": 90,
+                "supplier": {
+                    "name": "Cool Fresh Farm",
+                    "phone": "+85566666666",
+                    "address": "Kandal"
+                }
+            }
+        }
+    }
+}
