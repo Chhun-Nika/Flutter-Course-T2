@@ -8,7 +8,7 @@ import 'song_repository.dart';
 
 class SongRepositoryFirebase extends SongRepository {
   final Uri songsUri = Uri.https(
-    'week-8-practice-f6856-default-rtdb.firebaseio.com',
+    'w9-database-2c597-default-rtdb.firebaseio.com',
     '/songs.json',
   );
 
