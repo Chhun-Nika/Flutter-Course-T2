@@ -1,3 +1,4 @@
+import 'package:activity/WEEK-09/W9%20-PRACTICE/ui/utils/duration_formatter.dart';
 import 'package:flutter/material.dart';
 
 import '../../../model/songs/song.dart';
@@ -27,6 +28,7 @@ class SongTile extends StatelessWidget {
           leading: CircleAvatar(backgroundImage: NetworkImage(song.imageUrl.toString()),),
           onTap: onTap,
           title: Text(song.title),
+          subtitle: Text("${DurationFormatter.toMinutes(song.duration)} mins"),
           trailing: Text(
             isPlaying ? "Playing" : "",
             style: TextStyle(color: Colors.amber),
