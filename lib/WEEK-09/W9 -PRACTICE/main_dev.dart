@@ -1,5 +1,8 @@
+
+import 'package:activity/WEEK-09/W9%20-PRACTICE/data/repositories/artists/artist_repository_firebase.dart';
 import 'package:provider/provider.dart';
- 
+import 'data/repositories/artists/artist_repository.dart';
+// import 'data/repositories/artists/artist_repository_mock.dart';
 import 'data/repositories/songs/song_repository_firebase.dart';
 import 'main_common.dart';
 import 'data/repositories/settings/app_settings_repository_mock.dart';
@@ -23,6 +26,11 @@ List<InheritedProvider> get devProviders {
     ChangeNotifierProvider<AppSettingsState>(
       create: (_) => AppSettingsState(repository: appSettingsRepository),
     ),
+
+    // inject artist repository
+    // Provider<ArtistRepository>(create: (_) => ArtistRepositoryMock())
+    Provider<ArtistRepository>(create: (_) => ArtistRepositoryFirebase())
+
   ];
 }
 
