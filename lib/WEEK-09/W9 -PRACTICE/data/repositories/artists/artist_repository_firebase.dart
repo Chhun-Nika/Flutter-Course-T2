@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-
 import 'package:http/http.dart' as http;
 
 import '../../../model/artists/artist.dart';
@@ -21,7 +20,9 @@ class ArtistRepositoryFirebase implements ArtistRepository {
       List<Artist> result = [];
 
       for (var a in artistsJson.entries) {
-        result.add(ArtistDto.fromJson(a.value));
+        final String id = a.key;
+        final Map<String, dynamic> value = a.value;
+        result.add(ArtistDto.fromJson(id, value));
       }
 
       return result;
