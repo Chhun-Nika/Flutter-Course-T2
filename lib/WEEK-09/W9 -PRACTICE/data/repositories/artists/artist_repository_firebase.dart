@@ -30,4 +30,5 @@ class ArtistRepositoryFirebase implements ArtistRepository {
       throw Exception('Fail to load artist');
     }
   }
+
 }

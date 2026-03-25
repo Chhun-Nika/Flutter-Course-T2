@@ -22,10 +22,12 @@ class ArtistRepositoryMock implements ArtistRepository {
       imageUrl: Uri.parse('https://example.com/images/drake.jpg'),
     ),
   ];
+
   @override
   Future<List<Artist>> fetchArtists() async {
     return Future.delayed(Duration(seconds: 2), () {
       return artists;
     });
   }
+
 }
