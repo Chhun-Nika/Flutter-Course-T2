@@ -3,14 +3,13 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import '../../../model/artists/artist.dart';
+import '../../config/firebase_config.dart';
 import '../../dtos/artist_dto.dart';
 import 'artist_repository.dart';
 
 class ArtistRepositoryFirebase implements ArtistRepository {
-  final Uri artistsUri = Uri.https(
-    'w9-database-2c597-default-rtdb.firebaseio.com',
-    '/artists.json',
-  );
+  final Uri artistsUri = FirebaseConfig.baseUri.replace(path: '/artists.json');
+
   @override
   Future<List<Artist>> fetchArtists() async {
     final http.Response response = await http.get(artistsUri);
@@ -30,5 +29,4 @@ class ArtistRepositoryFirebase implements ArtistRepository {
       throw Exception('Fail to load artist');
     }
   }
-
 }
