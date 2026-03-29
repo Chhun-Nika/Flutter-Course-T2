@@ -34,4 +34,5 @@ class ArtistsViewModel extends ChangeNotifier {
     }
     notifyListeners();
   }
+
 }

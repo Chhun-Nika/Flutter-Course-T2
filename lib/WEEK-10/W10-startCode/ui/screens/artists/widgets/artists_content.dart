@@ -1,3 +1,4 @@
+import 'package:activity/WEEK-10/W10-startCode/ui/screens/artists/artist_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -35,7 +36,15 @@ class ArtistsContent extends StatelessWidget {
         content = ListView.builder(
           physics: AlwaysScrollableScrollPhysics(),
           itemCount: artists.length,
-          itemBuilder: (context, index) => ArtistTile(artist: artists[index]),
+          itemBuilder: (context, index) => ArtistTile(
+            artist: artists[index],
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => ArtistDetailScreen(artist: artists[index])),
+              );
+            },
+          ),
         );
     }
 

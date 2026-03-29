@@ -1,3 +1,5 @@
+import 'package:activity/WEEK-10/W10-startCode/data/repositories/comments/comments_repository.dart';
+import 'package:activity/WEEK-10/W10-startCode/data/repositories/comments/comments_repository_firebase.dart';
 import 'package:provider/provider.dart';
  
 import 'data/repositories/artist/artist_repository.dart';
@@ -18,6 +20,7 @@ List<InheritedProvider> get devProviders {
     // 1 - Inject repositories
     Provider<SongRepository>(create: (_) => SongRepositoryFirebase()),
     Provider<ArtistRepository>(create: (_) => ArtistRepositoryFirebase()),
+    Provider<CommentsRepository>(create: (_) => CommentsRepositoryFirebase()),
     
     // 2 - Inject the player state
     ChangeNotifierProvider<PlayerState>(create: (_) => PlayerState()),

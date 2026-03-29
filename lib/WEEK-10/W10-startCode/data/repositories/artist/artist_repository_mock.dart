@@ -1,3 +1,5 @@
+import 'package:activity/WEEK-10/W10-startCode/model/songs/song.dart';
+
 import '../../../model/artist/artist.dart';
 import 'artist_repository.dart';
 
@@ -19,5 +21,11 @@ class ArtistRepositoryMock implements ArtistRepository {
         orElse: () => throw Exception("No artist with id $id in the database"),
       );
     });
+  }
+
+  @override
+  Future<List<Song>> fetchSongsByArtists(String artistId) {
+    // TODO: implement fetchSongsByArtists
+    throw UnimplementedError();
   }
 }
