@@ -15,6 +15,8 @@ class LibraryViewModel extends ChangeNotifier {
 
   AsyncValue<List<LibraryItemData>> data = AsyncValue.loading();
 
+  String errorMessage = "";
+
   LibraryViewModel({
     required this.songRepository,
     required this.playerState,
@@ -62,7 +64,6 @@ class LibraryViewModel extends ChangeNotifier {
           .toList();
 
       this.data = AsyncValue.success(data);
-
     } catch (e) {
       // 3- Fetch is unsucessfull
       data = AsyncValue.error(e);
@@ -74,4 +75,31 @@ class LibraryViewModel extends ChangeNotifier {
 
   void start(Song song) => playerState.start(song);
   void stop(Song song) => playerState.stop();
+
+  void onLikeClicked(String id) async {
+    final oldDataList = data.data!;
+    // updating the likes for specific song
+    final updatedDataList = oldDataList.map((d) {
+      if (d.song.id == id) {
+        return LibraryItemData(
+          song: d.song.copyWithLikes(d.song.likes + 1),
+          artist: d.artist,
+        );
+      }
+      return d;
+    }).toList();
+
+    // since ui listen to the async value so it is importing to update the data with mew data
+    data = AsyncValue.success(updatedDataList);
+    notifyListeners();
+
+    try {
+      await songRepository.likeSong(id);
+    } catch (e) {
+      // if there is an error, the view should update back to old data
+      data = AsyncValue.success(oldDataList);
+      errorMessage = "Fail to like song.";
+      notifyListeners();
+    }
+  }
 }
